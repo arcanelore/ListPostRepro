@@ -20,13 +20,14 @@ namespace ListPostRepro.ODataService.Controllers
             return Created(internalList);
         }
 
+        [EnableQuery]
         [HttpPost, ODataRoute("CreateListIndexValue")]
         public async Task<IHttpActionResult> ListCreateValue([FromBody]CreateListValue createList)
         {
             if (createList == null || createList.ListValues == null) { return BadRequest("Invalid List Data."); }
 
             CreateListValue internalList = createList;
-
+            
             return Created(internalList);
         }
 
